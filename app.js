@@ -1,5 +1,6 @@
 const profileDataArgs = process.argv.slice(2, process.argv.length); //9.1.5 - return an array starting at 3rd index 
 const [name, github] = profileDataArgs; //9.2.4 - assignment destructuting - assigns elements of an array to variable names in a single expression
+const fs = require("fs");
 
 // const printProfileData = profileDataArr => { //9.1.6 - arrow function 
 //     for (let i=0; i<profileDataArr.length; i++){ //9.1.6 - print command line arguments one by one
@@ -33,5 +34,7 @@ const generatePage = (name, github) => {
     `; //9.2.4 - ouput the html above in function 
 }; 
 
-console.log(name, github);
-console.log(generatePage(name, github));
+fs.writeFile("index.html", generatePage(name, github), err => { //9.2.5 - 1.file name to be created, 2.the data being written, 3.callback function that will handle errors 
+    if (err) throw err; //creates an exception and stops the execution of the code 
+    console.log("Portfolio complete! Check out index.html to see the output!")
+}); 
