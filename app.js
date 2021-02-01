@@ -39,9 +39,22 @@ const promptUser = () => { //9.3.5 - wrap in function so it can be invoked on de
             }
         },
         {
+            type: 'confirm',
+            name: 'confirmAbout',
+            message: 'Would you like to enter some information about yourself for an "About" section?',
+            default: true
+        },
+        {
             type: "input",
             name: "about",
-            message: "Provide some information about yourself."
+            message: "Provide some information about yourself.",
+            when: ({confirmAbout}) => { //9.3.6 - like the "validate" method, passes an object of all the answers given so far - a conditional prompt 
+                if (confirmAbout) {
+                    return true; 
+                } else {
+                    return false;
+                }
+            }
         }
     ]);
 }; 
