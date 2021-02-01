@@ -15,12 +15,28 @@ const promptUser = () => { //9.3.5 - wrap in function so it can be invoked on de
         { //array of object - "question" object - properties 
             type: "input", //text reply 
             name: "name", //name property value as the key, user input as the value of that key
-            message: "What is your name?"
+            message: "What is your name? (Required)",
+            validate: nameInput => {//9.3.6 - receives an argument (users input)
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your name!");
+                    return false; //prompted with same question until they answer 
+                }
+            }
         },
         {
             type: "input",
             name: "github",
-            message: "Enter your GitHub Username."
+            message: "Enter your GitHub Username.",
+            validate: githubInput => {//9.3.6 - receives an argument (users input)
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your GitHub username!");
+                    return false; //prompted with same question until they answer 
+                }
+            }
         },
         {
             type: "input",
@@ -46,12 +62,28 @@ const promptProject = portfolioData => { //9.3.5
         {
             type: 'input',
             name: 'name',
-            message: 'What is the name of your project?'
+            message: 'What is the name of your project? (Required)',
+            validate: projectInput => {//9.3.6 - receives an argument (users input)
+                if (projectInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your project name!");
+                    return false; //prompted with same question until they answer 
+                }
+            }
         },
         {
             type: 'input',
             name: 'name',
-            message: 'Provide a description of your project. (Required)'
+            message: 'Provide a description of your project. (Required)',
+            validate: descriptionInput => {//9.3.6 - receives an argument (users input)
+                if (descriptionInput) {
+                    return true;
+                } else {
+                    console.log("Please enter a description for your project!");
+                    return false; //prompted with same question until they answer 
+                }
+            }
         },
         {
             type: 'checkbox',
@@ -62,7 +94,15 @@ const promptProject = portfolioData => { //9.3.5
         {
             type: 'input',
             name: 'link',
-            message: 'Enter the Github link to your project. (Required)'
+            message: 'Enter the Github link to your project. (Required)',
+            validate: linkInput => {//9.3.6 - receives an argument (users input)
+                if (linkInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your GitHub project link!");
+                    return false; //prompted with same question until they answer 
+                }
+            }
         },
         {
             type: 'confirm', //boolean, true or false 
