@@ -1,3 +1,18 @@
+//9.4.5 - create the about section - will accept about variable as a parameter, if it doesn't exist it will return an empty string
+const generateAbout = aboutText => {
+    if (!aboutText) {
+        return "";
+    }
+    return `
+        <section class="my-3" id="about">
+            <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
+            <p> ${aboutText}</p>
+        </section>
+        `; 
+}; 
+
+
+
 //9.2.4 - template literals - interpolate/ insert variables into the function block useing ${} syntax
 module.exports = templateData => {
     //9.4.3 - destructure projects and about data from templateData based on their property key names
@@ -26,6 +41,7 @@ module.exports = templateData => {
             </div>
         </header>
         <main class="container my-5">
+            ${generateAbout(about)}
         </main>
         <footer>
             <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>   
