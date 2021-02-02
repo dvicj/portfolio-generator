@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
- const fs = require("fs");
- const generatePage = require("./src/page-template"); //9.2.6 - add require statement to receieve exported functions from other page
+const fs = require("fs");
+const generatePage = require("./src/page-template"); //9.2.6 - add require statement to receieve exported functions from other page
 
 // const pageHTML = generatePage(name, github); //9.3.5
 
@@ -139,15 +139,15 @@ const promptProject = portfolioData => { //9.3.5
     }); 
 };
 
-// promptUser()
-//             .then(promptProject) //run propmtProject function after promptUser function
-//             .then(portfolioData => {
-//                  const pageHTML = generatePage(portfolioData); 
+promptUser()
+            .then(promptProject) //run propmtProject function after promptUser function
+            .then(portfolioData => {
+                 const pageHTML = generatePage(portfolioData); 
 
-//                 //fs.writeFile("./index.html", pageHTML, err => {
-//                     //if (err) throw new Error(err);
-//                     //console.log("Page created! Check out index.html in this directory to see it!");
-//                 // })
-//             }); 
+                fs.writeFile("./index.html", pageHTML, err => {
+                    if (err) throw new Error(err);
+                    console.log("Page created! Check out index.html in this directory to see it!");
+                })
+            }); 
 
-const pageHTML = generatePage(mockData);
+//const pageHTML = generatePage(mockData);
