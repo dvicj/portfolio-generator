@@ -27,8 +27,11 @@ const copyFile = () => {
             }
             resolve({
                 ok: true, 
-                message: "File copied!"
+                message: "Stylesheet created!"
             });
         });    
     });
 }; 
+
+module.exports = { writeFile, copyFile }; //9.5.6 - exports an object with both functions 
+//shorthand property names - property key name and value are the same, you only have to write it once 

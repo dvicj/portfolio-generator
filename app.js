@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
-const fs = require("fs");
-const generatePage = require("./src/page-template"); //9.2.6 - add require statement to receieve exported functions from other page
+const generatePage = require("./src/page-template.js"); //9.2.6 - add require statement to receieve exported functions from other page
+const {writeFile, copyFile} = require("./utils/generate-site.js"); //9.5.6 - import object from generate-site 
 
 // const pageHTML = generatePage(name, github); //9.3.5
 
@@ -48,29 +48,24 @@ const promptUser = () => { //9.3.5 - wrap in function so it can be invoked on de
             type: "input",
             name: "about",
             message: "Provide some information about yourself.",
-            when: ({confirmAbout}) => { //9.3.6 - like the "validate" method, passes an object of all the answers given so far - a conditional prompt 
-                if (confirmAbout) {
-                    return true; 
-                } else {
-                    return false;
-                }
-            }
+            when: ({confirmAbout}) => confirmAbout //9.3.6 - like the "validate" method, passes an object of all the answers given so far - a conditional prompt 
         }
     ]);
 }; 
 
 
 const promptProject = portfolioData => { //9.3.5 
-    //9.3.5 - if there's no 'projects' array property, create one
-    if (!portfolioData.project) { //9.3.5 - if this comes back negative - ie. there is no projects, create an empty array
-        portfolioData.projects = [];
-    }
-    
     console.log(`
     =================
     Add a New Project  
     ================= 
     `);
+    
+    
+    //9.3.5 - if there's no 'projects' array property, create one
+    if (!portfolioData.project) { //9.3.5 - if this comes back negative - ie. there is no projects, create an empty array
+        portfolioData.projects = [];
+    }
     return inquirer.prompt([
         {
             type: 'input',
