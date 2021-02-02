@@ -93,7 +93,7 @@
 //     `;
 // };
 
-const generateProjects = projectsArr => {
+const generateProjects = projectsArr => { //9.4.6 filter and map within the HTML. other example is above 
     return `
     <section class="my-3" id="portfolio">
       <h2 class="text-dark bg-primary p-2 display-inline-block">Work</h2>
