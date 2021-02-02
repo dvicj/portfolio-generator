@@ -1,15 +1,15 @@
 //9.4.5 - create the about section - will accept about variable as a parameter, if it doesn't exist it will return an empty string
-// const generateAbout = aboutText => {
-//     if (!aboutText) {
-//         return "";
-//     }
-//     return `
-//         <section class="my-3" id="about">
-//             <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
-//             <p> ${aboutText}</p>
-//         </section>
-//         `; 
-// }; 
+const generateAbout = aboutText => {
+    if (!aboutText) {
+        return "";
+    }
+    return `
+        <section class="my-3" id="about">
+            <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
+            <p> ${aboutText}</p>
+        </section>
+        `; 
+}; 
 
 // const generateProjects = projectsArr => {
 //     //9.4.6 - get array of just featured projects 
