@@ -106,7 +106,7 @@ const generateProjects = projectsArr => { //9.4.6 filter and map within the HTML
             <h3 class="portfolio-item-title text-light">${name}</h3>
             <h5 class="portfolio-languages">
               Built With:
-              ${languages.join(', ')}
+              ${languages.map(language => language).join(', ')}
             </h5>
             <p>${description}</p>
             <a href="${link}" class="btn"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
